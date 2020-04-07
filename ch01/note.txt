@@ -1,0 +1,4 @@
+****************以下均基于ubuntu18.04*****************
+需要#include <stdlib.h>
+编译指令		cc more01.c -o more01
+运行指令与书上略有不同	./more01 more01.c
