@@ -2,3 +2,7 @@
 需要#include <stdlib.h>
 编译指令		cc more01.c -o more01
 运行指令与书上略有不同	./more01 more01.c
+
+vscode中暂存    即  git add
+Ctrl+Enter提交也就是git commit -m ""
+git push需要选择推送
