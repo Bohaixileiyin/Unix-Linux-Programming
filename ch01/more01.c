@@ -7,13 +7,17 @@
 #define LINELEN 512
 void do_more(FILE *);
 int see_more();
-int main(int ac,char *av[]){
+int main(int ac,char *av[]){//ac是命令行参数个数，av[i]存放第i个命令行参数字符串的首地址
 FILE *fp;
 if(ac == 1){
-	do_more(stdin);}
+	do_more(stdin);//如果没有参数，就从标准输入读取数据
+	}
 else
 	while(--ac)
-		if((fp = fopen(* ++av,"r")) != NULL){
+		printf("第 %d 个参数是 %s\n",ac,av[ac]);
+		if((fp = fopen(* ++av,"r")) != NULL){//av是av数组的首地址，*av相当于取出第一个参数(字符串)的首地址，当做字符串传给fopen
+																				//数组名与数组的首地址是等价的
+																				//字符串字面值(如"hello"")实际上是由常量字符组成的数组，也就是说它的返回值为首元素地址
 		do_more(fp);
 		fclose(fp);}
 		else
@@ -30,12 +34,12 @@ int num_of_lines = 0;
 int see_more(),reply;
 while(fgets(line,LINELEN,fp)){
 	if(num_of_lines == PAGELEN){
-	reply = see_more();
-	if(reply == 0)
-		break;
-	num_of_lines -= reply;
+		reply = see_more();//获得需要继续输出几行
+		if(reply == 0)
+			break;
+		num_of_lines -= reply;
 	}
-	if(fputs(line,stdout) == EOF)
+	if(fputs(line,stdout) == EOF)//输出一行内容
 		exit(1);
 	num_of_lines++;
 
