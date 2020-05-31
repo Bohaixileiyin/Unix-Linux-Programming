@@ -3,7 +3,7 @@
  */
 #include <stdlib.h>
 #include <stdio.h>
-#define PAGELEN 24
+#define PAGELEN 24//每页24行
 #define LINELEN 512
 void do_more(FILE *);
 int see_more();
