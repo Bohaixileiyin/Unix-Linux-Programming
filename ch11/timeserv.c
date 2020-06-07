@@ -6,6 +6,7 @@
 #include <netdb.h>
 #include <time.h>
 #include <string.h>
+#include <stdlib.h>
 
 #define PORTNUM 13000
 #define HOSTLEN 256
@@ -28,7 +29,7 @@ int main(int ac,char* av[]){
     /*
     第二步：将地址绑定到socket，地址就是host,port
     */
-   bzero((void *)&saddr,sizeof(saddr));
+   bzero((void *)&saddr,sizeof(saddr));//清空结构体
 
    gethostname(hostname,HOSTLEN);
    hp = gethostbyname(hostname);
